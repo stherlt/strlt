@@ -74,7 +74,8 @@ html {
   
   .nav-links a:hover,
   .nav-links a:focus {
-    
+    text-decoration: underline;
+    text-underline-offset: 10px;
     transform: scale(1.1);
     ;
   }

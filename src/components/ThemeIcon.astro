@@ -1,9 +1,9 @@
 <button id="themeToggle">
-  <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path class="crescent" fill-rule="evenodd" d="M11 5h2v14h-2z"/>
-    <path class="crescent" fill-rule="evenodd" d="M5 11h14v2H5z"/>
+  <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24"><path class = "crescent" fill="currentColor" d="M12 1.75a10.25 10.25 0 1 0 0 20.5a10.25 10.25 0 0 0 0-20.5m5.69 10.84a1 1 0 0 1-.5.35l-1.61.54a3.46 3.46 0 0 0-1.31.81a3.36 3.36 0 0 0-.81 1.31l-.55 1.61a1.11 1.11 0 0 1-.35.46a1 1 0 0 1-.57.19a.91.91 0 0 1-.57-.19a1 1 0 0 1-.36-.48l-.53-1.61a3.34 3.34 0 0 0-2.13-2.12l-1.6-.53a1 1 0 0 1-.48-.36a.93.93 0 0 1-.19-.57a1 1 0 0 1 .19-.58a.9.9 0 0 1 .47-.34l1.61-.54a3.56 3.56 0 0 0 1.33-.81c.37-.374.647-.83.81-1.33l.54-1.58a1 1 0 0 1 .33-.48a.89.89 0 0 1 .57-.21a1 1 0 0 1 .56.16a.92.92 0 0 1 .38.47l.54 1.63c.168.503.448.961.82 1.34a3.59 3.59 0 0 0 1.32.81l1.61.56a.9.9 0 0 1 .47.35a1 1 0 0 1 .18.57c-.001.202-.06.4-.17.57"/>
+  
   </svg>
 </button>
+
 
 
 
@@ -13,28 +13,53 @@
     position: fixed;
     border: 0;
     background: none;
-    top: 20px;
-    left: 20px;
+    top: 1.9rem;
+    left: 40px;
     transition: transform 0.3s ease;
   }
 
   .crescent {
-    fill: transparent;
-    stroke: black;
-    stroke-width: 3;
-    transform-origin: center;
     
+    stroke: black;
+    fill: black
+    stroke-width: 1px;
+    transform-origin: center;
     
     transition: stroke-width 0.3s ease; /* Transition for stroke width change */
   }
-
-  
+  .crescent:hover {
+    stroke-width: 1.5px;
+    transform-origin: center; 
+    transform: rotate(90deg);
+    transition: transform 0.5s ease;
+  }
+  .crescent:not(:hover) {
+    stroke-width: 1px;
+    transform-origin: center; 
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+  }
+  .crescent:active {
+    stroke-width: 1.4px;
+    transform-origin: center; 
+    transform: rotate(360deg);
+    transition: transform 0.2s ease-in;
+  }
 
 :global(.dark) .crescent {
   stroke: white;
+  fill: white;
+  
+  
+  
+}
+
+:global(.light) .crescent {
+  stroke: black;
+  ;
   stroke-width: 2px;
   transform-origin: center; 
-  transform: rotate(180deg);
+  transform: rotate(90deg);
   transition: transform 0.3s ease;
 }
 
