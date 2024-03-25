@@ -1,6 +1,7 @@
 html {
-    background-color: #c0cfb2;
+    background-color: #EEEDEB;
     font-family: monospace;
+    transition: background-color 0.3s ease;
   }
   
   body {
@@ -21,16 +22,18 @@ html {
   }
   html.dark {
     
-    background-color: #44624a;
+    background-color: #3C3633;
     color: #fff;
   }
+  
   
   .dark .nav-links a {
     color: #fff;
   }
+  
 
   .hamburger {
-    padding-right: 20px;
+    padding-left: 250px;
     cursor: pointer;
   }
   
@@ -95,21 +98,36 @@ html {
   }
 
   .foot {
-    padding: 1% 2%;
+    padding: 20% 1%;
     color: #44624a;
 
     text-decoration: none;
   }
   .dark .foot {
-    padding: 1% 2%;
-    color:#f1ebe1 ;
+    padding: 20% 1%;
+    color:#E5E5CB;
 
     text-decoration: none;
   }
   .foot a:visited {
     color: inherit;
   }
-
+  .typed {
+    position: relative;
+    opacity: 1;
+	font-size: 60px;
+    animation: typing 0.75s ease;
+  }
+  .containertype {
+    display: inline-block;
+  }
+  
+  
+  @keyframes typing {
+    0% { left: 0.09em; opacity: 0; filter: blur(0); }
+    50% { left: -0.09em; opacity: 0.7;filter: blur(2px); }
+    100% { left: 0; opacity: 1;filter: blur(0); ; }
+  }
   
   @media screen and (min-width: 636px) {
     .nav-links {
