@@ -1,21 +1,10 @@
 ---
-const pageTitle = "index";
-import Navigation from '../components/Navigation.astro';
-import '../styles/global.css';
-import Footer from '../components/Footer.astro'
+const pageTitle = "home";
+import Greeting from '../components/Greeting'
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<Navigation/>
-	</head>
-	<body>
-		<h1>Sean's Website</h1>
-		<Footer />
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<h2> LOREM IPSUM</h2>
+	<Greeting messages={["HELLO"]}/>
+</BaseLayout>
