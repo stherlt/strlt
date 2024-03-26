@@ -51,13 +51,15 @@ html {
     background-color: #f1ebe1;
   }
   .nav-links {
-    
+    filter: 2px;
+    z-index: 1;
+    color: #fff;
     user-select: none;
     color: inherit;
     width: 100%;
     top: 5rem;
     left: 48px;
-    background-color: #ff9776;
+    
     display: none;
     margin: 0;
   }
@@ -114,7 +116,7 @@ html {
   .typed {
     position: relative;
     opacity: 1;
-	font-size: 60px;
+	  font-size: 60px;
     animation: typing 0.75s ease;
   }
   .containertype {

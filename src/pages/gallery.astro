@@ -1,0 +1,41 @@
+---
+const pageTitle = "gallery";
+
+
+import cardComponent from '../components/cardComponent.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImageComponent from '../components/ImageComponent.astro';
+const images = [{ src: '../assets/img2.jpg', alt: 'Image 1' }];
+---
+
+<cardComponent
+    imagePath="/src/assets/avatar-1.jpg"
+    altText="A headshot of Priya against a brick wall background."
+    name="Priya"
+    age={25}
+/>
+<BaseLayout pageTitle={pageTitle}>
+	<div class="containertype">
+		<div class = "typed">{pageTitle}</div>
+
+	</div>
+	<div class="gallery">
+      {images.map((image) => (
+        <ImageComponent src={image.src} alt={image.alt} />
+      ))}
+    </div>
+</BaseLayout>
+
+
+<style>
+    .imageGal {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .imageGal img{
+      width: 25%;
+      height: 250px;  
+    }
+</style>

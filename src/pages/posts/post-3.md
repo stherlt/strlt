@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'dev2'
+title: 'dev3'
 pubDate: 2022-07-01
-description: 'hello'
+description: 'hi'
 preview: "Lorem ipsum"
 author: 'Astro Learner'
 image:

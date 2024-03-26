@@ -1,8 +1,9 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'dev1'
+title: 'discord bot'
 pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
+description: 'AAAAAAAAAAAAaaaaaAaaaaaAaaa
+'
 preview: "Lorem ipsum"
 author: 'Astro Learner'
 image:
