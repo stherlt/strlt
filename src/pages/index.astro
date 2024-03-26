@@ -7,8 +7,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout pageTitle={pageTitle}>
 
 	<h1 class="warptext">
+		<p class="title">
 		<span>s</span><span>e</span><span>a</span><span>n</span>
 		<span>t</span><span>h</span><span>e</span><span>r</span><span>i</span><span>a</span><span>u</span><span>l</span><span>t</span>
+		</p>
+		<p class="subtitle">
+			<span>E</span><span>L</span><span>E</span><span>C</span><span>T</span><span>R</span><span>I</span><span>C</span><span>A</span><span>L</span>
+		<span>E</span><span>N</span><span>G</span><span>I</span><span>N</span><span>E</span><span>E</span><span>R</span><span>I</span><span>N</span><span>G</span>
+		<span>S</span><span>T</span><span>U</span><span>D</span><span>E</span><span>N</span><span>T</span>
+		</p>
 		
 	</h1>
 
@@ -16,18 +23,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 <style>
 	.warptext span { 
-	
 	position: relative;
     opacity: 1;
-	font-size: 60px;
+	
+	
+	
 	animation: move-text 0.5s ease;
     
   }
   .dark .warptext span{ 
     color: black ;
-    
-    }
-   
+     }
+
+	.warptext .title {
+		font-size: 60px;
+	}
+   .subtitle {
+	margin-top: -5rem;
+	color: #776B5D;
+	font-size: 30px;
+   }
+   .dark .subtitle {
+	color: #;
+   }
   @keyframes move-text {
 	0% { bottom: -0.05em; opacity: 0; filter: blur(0); }
     50% { bottom: 0.05em; opacity: 0.7;filter: blur(1px); }
@@ -42,4 +60,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .warptext span:hover {
 	animation: nudge-text 0.3s ease;
   }
+  
 </style>
