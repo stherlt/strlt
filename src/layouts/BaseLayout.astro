@@ -18,12 +18,35 @@ import Footer from '../components/Footer.astro'
 		
 	</head>
 	<body>
+		<script>
+			import "../scripts/menu.js"
+			</script>
+		<div class="mainContent">
 		<slot />
 		
 		
-		<script>
-		import "../scripts/menu.js"
-		</script>
+		</div>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.mainContent {
+		animation: fadeInText 1s ease forwards;
+	}
+
+	@keyframes fadeInText {
+        0% {
+			transform: translateX(20%);
+			
+            
+        }
+        100% {
+			transform: translateX(0%);
+			
+            
+        }
+    }
+
+   
+</style>

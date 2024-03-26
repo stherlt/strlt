@@ -1,41 +1,196 @@
 ---
 const pageTitle = "gallery";
 
-
-import cardComponent from '../components/cardComponent.astro';
+const allPosts = await Astro.glob('../pages/images/*.md');
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ImageComponent from '../components/ImageComponent.astro';
-const images = [{ src: '../assets/img2.jpg', alt: 'Image 1' }];
 ---
 
-<cardComponent
-    imagePath="/src/assets/avatar-1.jpg"
-    altText="A headshot of Priya against a brick wall background."
-    name="Priya"
-    age={25}
-/>
 <BaseLayout>
-	<div class="containertype">
-		<div class = "typed">{pageTitle}</div>
-
-	</div>
-	<div class="gallery">
-      {images.map((image) => (
-        <ImageComponent src={image.src} alt={image.alt} />
-      ))}
+    <div class="containertype">
+        <div class = "typed">{pageTitle}</div>
+        
     </div>
+
+    <p></p>
+    <div class="blogPostCont">
+        {allPosts.map((post) => (
+            <div class="blogPostBox">
+                <a href={post.url} class="blogPostLink">
+                    <h2>{post.frontmatter.title}</h2>
+                    <p class="postDate">{post.frontmatter.pubDate}</p> <!-- Add date -->
+                    <p class="postExcerpt">{post.frontmatter.description}</p> <!-- Add excerpt -->
+                    
+                    <div class="tags">{post.frontmatter.tags.map(tag => <span>{tag}</span>)}</div> 
+                </a>
+            </div>
+            ))}
+    </div>
+    
+	
 </BaseLayout>
 
-
 <style>
-    .imageGal {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      align-items: center;
+    .blogPostCont {
+        display: flex;
+        color: white;
+        font-size: 15px;
+        flex-wrap: wrap;
+        gap:20px;
+        
     }
-    .imageGal img{
-      width: 25%;
-      height: 250px;  
+
+    .blogPostBox {
+        border: 1px solid rgba(255, 255, 255, 0.63);
+        font-style: bold;
+        background-color: #29272b;
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        transition: scale 0.15s ease-in;
+        animation: blockIn 1s ease;
+       
     }
+    
+    .postDate {
+        font-size: 8px;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.832);
+
+    }
+    .postExcert {
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.832);
+
+    }
+    .blogPostBox:hover {
+        scale: 1.1;
+        
+    }
+    .blogPostLink {
+        color: inherit;
+        text-decoration: none;
+    }
+    .blogPosts a:hover{
+        font-weight: bolder;
+        
+    }
+    .blogPostBox::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 0%;
+        border-radius: 10px;
+        background-image: linear-gradient(180deg, rgba(235, 164, 217, 0.4), transparent); /* Adjust gradient colors and opacity */
+        filter: blur(8px); /* Adjust blur radius */
+        z-index: -100; /* Ensure shadow is behind the box */
+        transition: opacity 1.2s ease; /* Smooth transition for opacity */
+        opacity: 0; /* Initially hidden */
+        
+    }
+
+    .blogPostBox:hover::before {
+        background-size: 100%;
+        opacity: 1; 
+    }
+    .blogPosts a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: normal;
+        text-transform: lowercase;
+        user-select: none; /* Change to the desired color */
+    }
+    
+    .blogPostBox:hover{
+        scale: 1.1;
+        border: 2px solid rgba(255, 255, 255, 0.63);
+        animation: blurIn 1s ease, boxWarp 10s infinite ;
+    }
+    
+    
+
+    @keyframes blurIn {
+    0% {
+        filter: blur(0);
+    }
+    25% {
+        filter: blur(0.8px);
+    }
+    50% {
+        filter: blur(0px);
+    }
+    75% {
+        filter: blur(0px);
+    }
+    100% {
+        filter: blur(0);
+    }
+    
+}
+@keyframes blockIn {
+    0% {
+        filter: blur(0px);
+        
+        
+    }
+    25% {
+        
+        filter: blur(2px);
+        opacity: 1;
+    }
+    50% {
+        filter: blur(0px);
+    }
+    75% {
+        filter: blur(0px);
+    }
+    100% {
+        
+        filter: blur(0);
+        
+    }
+    
+}
+    @keyframes boxWarp {
+        0% {
+        border-radius: 10px;
+    }
+    20% {
+        border-radius: 15px 12px 15px 12px / 60% 40% 60% 20%;
+    }
+    40% {
+        border-radius: 12px 15px 12px 15px / 40% 60% 20% 60%;
+    }
+    60% {
+        border-radius: 15px 12px 15px 12px / 60% 20% 60% 40%;
+    }
+    80% {
+        border-radius: 12px 15px 12px 15px / 20% 60% 40% 60%;
+    }
+    100% {
+        border-radius: 10px;
+    }
+}
+    
+
+    .blogPostBox .tags {
+        display: none; /* Initially hide the tags */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2; /* Ensure tags appear above gradient */
+        background-color: rgba(0, 0, 0, 0.356);
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: opacity 1.2 ease;
+    }
+    
+
+    .blogPostBox:hover .postPreview,
+    .blogPostBox:hover .tags {
+        display: block; /* Show image and tags on hover */
+    }
+    
 </style>

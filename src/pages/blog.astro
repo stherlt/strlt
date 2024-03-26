@@ -46,8 +46,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         padding: 15px;
         box-sizing: border-box;
         border-radius: 10px;
-        transition: scale 0.1s ease-in;
-        transition: font-size 0.2s ease-in;
+        transition: scale 0.15s ease-in;
+        animation: blockIn 1s ease;
        
     }
     
@@ -83,7 +83,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         height: 100%;
         background-size: 0%;
         border-radius: 10px;
-        background-image: linear-gradient(45deg, rgba(164, 235, 181, 0.5), transparent); /* Adjust gradient colors and opacity */
+        background-image: linear-gradient(180deg, rgba(164, 235, 181, 0.4), transparent); /* Adjust gradient colors and opacity */
         filter: blur(8px); /* Adjust blur radius */
         z-index: -100; /* Ensure shadow is behind the box */
         transition: opacity 1.2s ease; /* Smooth transition for opacity */
@@ -104,8 +104,77 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     
     .blogPostBox:hover{
-        font-size: 18px;
+        scale: 1.1;
+        border: 2px solid rgba(255, 255, 255, 0.63);
+        animation: blurIn 1s ease, boxWarp 10s infinite ;
     }
+    
+    
+
+    @keyframes blurIn {
+    0% {
+        filter: blur(0);
+    }
+    25% {
+        filter: blur(0.8px);
+    }
+    50% {
+        filter: blur(0px);
+    }
+    75% {
+        filter: blur(0px);
+    }
+    100% {
+        filter: blur(0);
+    }
+    
+}
+@keyframes blockIn {
+    0% {
+        filter: blur(0px);
+        
+        
+    }
+    25% {
+        
+        filter: blur(2px);
+        opacity: 1;
+    }
+    50% {
+        filter: blur(0px);
+    }
+    75% {
+        filter: blur(0px);
+    }
+    100% {
+        
+        filter: blur(0);
+        
+    }
+    
+}
+    @keyframes boxWarp {
+        0% {
+        border-radius: 10px;
+    }
+    20% {
+        border-radius: 15px 12px 15px 12px / 60% 40% 60% 20%;
+    }
+    40% {
+        border-radius: 12px 15px 12px 15px / 40% 60% 20% 60%;
+    }
+    60% {
+        border-radius: 15px 12px 15px 12px / 60% 20% 60% 40%;
+    }
+    80% {
+        border-radius: 12px 15px 12px 15px / 20% 60% 40% 60%;
+    }
+    100% {
+        border-radius: 10px;
+    }
+}
+    
+
     .blogPostBox .tags {
         display: none; /* Initially hide the tags */
         position: absolute;
