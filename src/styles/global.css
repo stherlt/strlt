@@ -29,10 +29,13 @@ html {
   .dark .nav-links a {
     color: #fff;
   }
+  .dark .nav-links a {
+    color: #fff;
+  }
   
 
   .hamburger {
-    padding-left: 250px;
+    padding-left: 90%;
     cursor: pointer;
   }
   

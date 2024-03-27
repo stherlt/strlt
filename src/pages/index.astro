@@ -4,7 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
+	<section class= "margin">
 
+	</section>
 	<h1 class="warptext">
 		<p class="title">
 		<span>s</span><span>e</span><span>a</span><span>n</span>
@@ -35,6 +37,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
+	.margin {
+		padding-top: 20%;
+	}
 	.warptext span { 
 	position: relative;
     opacity: 1;
@@ -123,6 +128,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	.message-container {
 		margin-left: 0%;
+		opacity: 0;
 		font-size: 40px;
 		overflow: hidden; 
 		height: 100px; 
