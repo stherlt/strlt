@@ -1,5 +1,5 @@
 ---
-const pageTitle = "gallery";
+const pageTitle = "visuals";
 
 const allPosts = await Astro.glob('../pages/images/*.md');
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -7,8 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout>
     <div class="containertype">
-        <div class = "typed">{pageTitle}</div>
-        
+        <div class="typed">{pageTitle}</div>
     </div>
 
     <p></p>
@@ -16,120 +15,93 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         {allPosts.map((post) => (
             <div class="blogPostBox">
                 <a href={post.url} class="blogPostLink">
-                    <h2>{post.frontmatter.title}</h2>
-                    <p class="postDate">{post.frontmatter.pubDate}</p> <!-- Add date -->
-                    <p class="postExcerpt">{post.frontmatter.description}</p> <!-- Add excerpt -->
-                    
-                    <div class="tags">{post.frontmatter.tags.map(tag => <span>{tag}</span>)}</div> 
+                    <div class="imageContainer">
+                        <img src={post.frontmatter.image.url} alt={post.frontmatter.image.alt} class="images" />
+                        <div class="imageOverlay">
+                            <p class="postDate">{post.frontmatter.pubDate}</p>
+                            <p class="pgTitle">{post.frontmatter.title}</p>
+                            <div class="tags">{post.frontmatter.tags.map(tag => <span>{tag}</span>)}</div>
+                        </div>
+                    </div>
                 </a>
             </div>
-            ))}
+        ))}
     </div>
-    
-	
 </BaseLayout>
 
 <style>
-    .blogPostCont {
-        display: flex;
-        color: white;
-        font-size: 15px;
-        flex-wrap: wrap;
-        gap:20px;
-        
-    }
-
-    .blogPostBox {
-        border: 1px solid rgba(255, 255, 255, 0.63);
-        font-style: bold;
-        background-color: #29272b;
-        padding: 15px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        transition: scale 0.15s ease-in;
-        animation: blockIn 1s ease;
-       
-    }
     
-    .postDate {
-        font-size: 8px;
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.832);
-
+    .imageContainer {
+        position: relative;
+        overflow: hidden;
+        gap: 20px; 
+        width: 100%;
+        
+       
+        transition: border-radius 0.5s ease-in-out;
     }
-    .postExcert {
-        font-size: 9px;
-        color: rgba(255, 255, 255, 0.832);
 
-    }
-    .blogPostBox:hover {
-        scale: 1.1;
+    .images {
+        
+        border-radius: 10px;
+        width: 100%;
+        height: auto;
+        display: block;
+        animation: blockIn 1s ease;
         
     }
-    .blogPostLink {
-        color: inherit;
-        text-decoration: none;
-    }
-    .blogPosts a:hover{
-        font-weight: bolder;
-        
-    }
-    .blogPostBox::before {
-        content: '';
+
+    .imageOverlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-size: 0%;
-        border-radius: 10px;
-        background-image: linear-gradient(180deg, rgba(235, 164, 217, 0.4), transparent); /* Adjust gradient colors and opacity */
-        filter: blur(8px); /* Adjust blur radius */
-        z-index: -100; /* Ensure shadow is behind the box */
-        transition: opacity 1.2s ease; /* Smooth transition for opacity */
-        opacity: 0; /* Initially hidden */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+        box-sizing: border-box;
         
+        
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
-    .blogPostBox:hover::before {
-        background-size: 100%;
-        opacity: 1; 
+    .imageContainer:hover .imageOverlay {
+        opacity: 1;
     }
-    .blogPosts a {
+
+    .postDate,
+    .tags {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .tags span {
+        margin-right: 5px;
+    }
+
+    .blogPostLink {
         color: inherit;
         text-decoration: none;
-        font-weight: normal;
-        text-transform: lowercase;
-        user-select: none; /* Change to the desired color */
     }
-    
-    .blogPostBox:hover{
-        scale: 1.1;
-        border: 2px solid rgba(255, 255, 255, 0.63);
-        animation: blurIn 1s ease, boxWarp 10s infinite ;
-    }
-    
-    
 
-    @keyframes blurIn {
-    0% {
-        filter: blur(0);
+    /* Border animation */
+    .blogPostBox {
+        width: 100%;
+        margin-bottom: 100px;
+        overflow: hidden;
+        position: relative;
+        padding: 10px;
+        margin: 0px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        transition: transform 0.15s ease-in-out;
     }
-    25% {
-        filter: blur(0.8px);
-    }
-    50% {
-        filter: blur(0px);
-    }
-    75% {
-        filter: blur(0px);
-    }
-    100% {
-        filter: blur(0);
-    }
-    
-}
-@keyframes blockIn {
+
+    @keyframes blockIn {
     0% {
         filter: blur(0px);
         
@@ -152,45 +124,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         
     }
     
+    }
+    .pgTitle {
+    opacity: 1;
+    font-weight: bold;
+    font-size: 60px;
+    transition: transform 0.3s ease;
 }
-    @keyframes boxWarp {
-        0% {
-        border-radius: 10px;
-    }
-    20% {
-        border-radius: 15px 12px 15px 12px / 60% 40% 60% 20%;
-    }
-    40% {
-        border-radius: 12px 15px 12px 15px / 40% 60% 20% 60%;
-    }
-    60% {
-        border-radius: 15px 12px 15px 12px / 60% 20% 60% 40%;
-    }
-    80% {
-        border-radius: 12px 15px 12px 15px / 20% 60% 40% 60%;
-    }
-    100% {
-        border-radius: 10px;
-    }
-}
-    
 
-    .blogPostBox .tags {
-        display: none; /* Initially hide the tags */
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 2; /* Ensure tags appear above gradient */
-        background-color: rgba(0, 0, 0, 0.356);
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: opacity 1.2 ease;
-    }
-    
 
-    .blogPostBox:hover .postPreview,
-    .blogPostBox:hover .tags {
-        display: block; /* Show image and tags on hover */
+.imageContainer .pgTitle {
+    opacity: 1;
+    ;
+    }
+.imageContainer:hover .pgTitle {
+    opacity: 1;
+    transform: translateX(20%);
+    }
+
+    .blogPostBox:hover {
+        transform: scale(1.1);
+        animation: blockIn 1s ease;
+        z-index: 100;
     }
     
 </style>

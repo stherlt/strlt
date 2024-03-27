@@ -1,30 +1,16 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'discord bot'
+title: 'bob'
 pubDate: 2022-07-01
-description: 'AAAaaa
+description: 'i am bob
 '
 preview: "Lorem ipsum"
 author: 'Astro Learner'
 image:
-    url: 'https://www.pbs.org/wnet/nature/files/2021/05/frog-1280x720.png'
+    url: 'https://blueprintdigital.com/wp-content/uploads/2014/11/stock-photo-happy-man-giving-okay-sign-portrait-on-white-background-141327337.jpg'
     alt: 'The full Astro logo.'
 tags: ["dev"]
 ---
 
 
-Published on: 2022-07-01
-
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
-
-## What I've accomplished
-
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+i am writing this

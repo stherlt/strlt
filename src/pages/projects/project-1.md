@@ -1,13 +1,12 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'discord bot'
-pubDate: 2022-07-01
-description: 'AAAAAAAAAAAAaaaaaAaaaaaAaaa
-'
+pubDate: 2023-11-13
+description: 'interactive discord bot built during student hackathon'
 preview: "Lorem ipsum"
 author: 'Astro Learner'
 image:
-    url: 'https://www.pbs.org/wnet/nature/files/2021/05/frog-1280x720.png'
+    url: 'https://w.wallhaven.cc/full/6q/wallhaven-6qx916.png'
     alt: 'The full Astro logo.'
 tags: ["dev"]
 ---
@@ -15,16 +14,16 @@ tags: ["dev"]
 
 Published on: 2022-07-01
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
-## What I've accomplished
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+## Project Goals
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+1. **GOAL1**
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+## Contribrutions
 
-## What's next
+## Takeaways:
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+````python
+int i
+````
