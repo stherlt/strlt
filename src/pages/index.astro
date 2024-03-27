@@ -18,18 +18,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<div class="blob"></div>
 			
 		</section>
-		<section>
-			
-			  
-			  
-			  
-			  
-			  
-			  
+		
 		</section>
+		
 		</p>
 		
 	</h1>
+	<section class="message-container">
+		<div class="message-box">
+			<span id="message">@uAlberta</span>
+			<span id="message">hello</span>
+			
+		</div>
 	
 	
 </BaseLayout>
@@ -50,14 +50,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	.warptext .title {
 		font-size: 60px;
+		
+	}
+	@keyframes colorGlide {
+		0% {
+        color: #aec178;
+    }
+    50% {
+        color: #9fbbcc;
+    }
+    100% {
+        color: #adc178;
+    }
 	}
    .subtitle {
 	margin-top: -5rem;
-	color: #776B5D;
+	filter: invert(10px);
+	animation: colorGlide 10s infinite;
 	font-size: 30px;
    }
    .dark .subtitle {
-	color: #;
+	
    }
   @keyframes move-text {
 	0% { bottom: -0.05em; opacity: 0; filter: blur(0); }
@@ -108,5 +121,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 
 
+	.message-container {
+		margin-left: 0%;
+		font-size: 40px;
+		overflow: hidden; 
+		height: 100px; 
+		width: 300px;
+		
+	}
+
+	.message-box {
+		display: flex;
+		flex-direction: right;
+		gap: 300px;
+		animation: scroll-up 12s linear infinite; 
+	}
+
+	.message {
+		padding: 10px; /* Add padding for better readability */
+		
+	}
+
+	@keyframes scroll-up {
+		0% {
+			transform: translateX(150%);
+			
+		}
+		10% {
+			transform: translateX(0%);
+			
+		}
+		40% {
+			transform: translateX(0%);
+			
+		}
+		
+		50% {
+			transform: translateX(-160%);
+			filter: blur(0px);
+			opacity: 1; /* Start off-screen below */
+		}
+		80% {
+			transform: translateX(-160%);
+			filter: blur(0px); /* Start off-screen below */
+		}
+
+		95% {
+			filter: blur(2px);
+			transform: translateX(-350%);
+			 /* End off-screen above */
+		}
+		100% {
+			transform: translateX(-350%);
+			
+		}
+	}
 
 </style>

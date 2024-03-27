@@ -7,7 +7,7 @@ description: 'i am bob
 preview: "Lorem ipsum"
 author: 'Astro Learner'
 image:
-    url: 'https://blueprintdigital.com/wp-content/uploads/2014/11/stock-photo-happy-man-giving-okay-sign-portrait-on-white-background-141327337.jpg'
+    url: 'https://w.wallhaven.cc/full/6q/wallhaven-6qx916.png'
     alt: 'The full Astro logo.'
 tags: ["dev"]
 ---
