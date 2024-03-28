@@ -67,7 +67,9 @@ html {
     margin: 0;
   }
   
+  
   .nav-links a {
+    color: inherit;
     display: block;
     text-align: center;
     padding: 10px 0;
